@@ -31,8 +31,7 @@ int main(void) {
                 printf("child C pid: %d\n", parent_pid);
                 printf("child C disables pcbcopylog...\n");
                 
-                // Disable logging
-                pcbcopylog(0);
+                syscall(550, 0);
                 
                 printf("child C (pid: %d) forks...\n", parent_pid);
                 int child_D = fork();
