@@ -1,0 +1,1 @@
+obj-y := hello.o getname.o pcbcopylog.o # CLR

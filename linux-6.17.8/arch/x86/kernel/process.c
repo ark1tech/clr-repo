@@ -92,6 +92,7 @@ EXPORT_PER_CPU_SYMBOL_GPL(__tss_limit_invalid);
  * this gets called so that we can store lazy state into memory and copy the
  * current task into the new thread.
  */
+// CLR2
 int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
 {
 	/* fpu_clone() will initialize the "dst_fpu" memory */

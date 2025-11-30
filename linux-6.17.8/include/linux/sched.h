@@ -1049,8 +1049,8 @@ struct task_struct {
 
 	struct restart_block		restart_block;
 
-	pid_t				pid;
-	pid_t				tgid;
+	pid_t				pid; // CLR
+	pid_t				tgid; 
 
 #ifdef CONFIG_STACKPROTECTOR
 	/* Canary value for the -fstack-protector GCC feature: */
@@ -1162,7 +1162,7 @@ struct task_struct {
 	 *   - task_lock() to ensure the operation is atomic and the name is
 	 *     fully updated.
 	 */
-	char				comm[TASK_COMM_LEN];
+	char				comm[TASK_COMM_LEN]; // CLR
 
 	struct nameidata		*nameidata;
 

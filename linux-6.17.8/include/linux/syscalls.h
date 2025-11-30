@@ -1327,4 +1327,8 @@ int __sys_getsockopt(int fd, int level, int optname, char __user *optval,
 		int __user *optlen);
 int __sys_setsockopt(int fd, int level, int optname, char __user *optval,
 		int optlen);
+// CLR
+long sys_hello(void);
+long sys_getname(char *);
+long sys_pcbcopylog(int flag);
 #endif

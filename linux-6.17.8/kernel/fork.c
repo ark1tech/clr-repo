@@ -123,6 +123,9 @@
 
 #include <kunit/visibility.h>
 
+// CLR
+extern int pcbcopylog_flag;
+
 /*
  * Minimum number of threads to boot the kernel
  */
@@ -848,8 +851,9 @@ void __init fork_init(void)
 	uprobes_init();
 }
 
+// CLR2
 int __weak arch_dup_task_struct(struct task_struct *dst,
-					       struct task_struct *src)
+					       struct task_struct *src) // CLR
 {
 	*dst = *src;
 	return 0;
@@ -874,7 +878,7 @@ static struct task_struct *dup_task_struct(struct task_struct *orig, int node)
 	if (!tsk)
 		return NULL;
 
-	err = arch_dup_task_struct(tsk, orig);
+	err = arch_dup_task_struct(tsk, orig); // CLR
 	if (err)
 		goto free_tsk;
 
@@ -960,6 +964,8 @@ static struct task_struct *dup_task_struct(struct task_struct *orig, int node)
 	tsk->mm_cid_active = 0;
 	tsk->migrate_from_cpu = -1;
 #endif
+	// CLR
+	if (pcbcopylog_flag != 0) printk("pcbcopylog: %s (%d)\n", orig->comm, orig->pid); 
 	return tsk;
 
 free_stack:

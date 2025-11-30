@@ -438,3 +438,8 @@
 547	x32	pwritev2		compat_sys_pwritev64v2
 # This is the end of the legacy x32 range.  Numbers 548 and above are
 # not special and are not to be used for x32-specific syscalls.
+
+# CLR
+548 64 hello sys_hello 
+549 64 getname sys_getname 
+550	64 pcbcopylog	sys_pcbcopylog

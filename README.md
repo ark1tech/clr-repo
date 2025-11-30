@@ -51,5 +51,19 @@
 - once Ubuntu has loaded, open a terminal instance and run `uname -mrs` 
   - should display `Linux 6.17.8 x86_64` as its output.
 
+#### recompiling and rebooting
+- run `sudo make install`
+- reboot
+- confirm `uname -mrs` 
+
 </details>
 
+<details>
+<summary><b>LKMs</b></summary>
+
+#### installing
+- run `sudo insmod pcbcopylog.ko`
+- verify by `dmesg | tail -n 20`
+- run `sudo rmmod pcbcopylog.ko` to unload 
+
+</details>
